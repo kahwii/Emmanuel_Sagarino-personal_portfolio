@@ -159,6 +159,14 @@
   .stack-item{ display:flex; align-items:center; gap:10px; font-size:14px; color:var(--ink); }
   .stack-item i{ font-size:19px; width:20px; text-align:center; color:var(--amber); }
 
+  /* ---------- GitHub Activity ---------- */
+  .gh-activity-card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:28px; transition:border-color .2s, box-shadow .2s; }
+  .gh-activity-card:hover{ border-color:var(--line-strong); box-shadow:0 18px 40px -24px rgba(16,19,26,0.28); }
+  .gh-activity-chart{ width:100%; height:auto; }
+  .gh-activity-link{ display:inline-flex; align-items:center; gap:8px; margin-top:20px; font-family:var(--font-mono); font-size:13px; color:var(--teal); text-decoration:none; transition:color .18s, transform .18s; }
+  .gh-activity-link:hover{ color:var(--ink); transform:translateX(3px); }
+  .gh-activity-link i{ font-size:16px; }
+
   /* ---------- Projects ---------- */
   .projects-list{ display:flex; flex-direction:column; gap:20px; }
   .project{ background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; transition:border-color .2s, box-shadow .2s; }
