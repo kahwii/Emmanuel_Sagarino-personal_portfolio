@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emmanuel-sagarino-personal-portfoli.vercel.app/sitemap.xml
