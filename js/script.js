@@ -2,6 +2,24 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Dark mode toggle */
+  var root = document.documentElement;
+  var themeToggle = document.getElementById('themeToggle');
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    if(themeToggle) themeToggle.textContent = theme === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
+    try{ localStorage.setItem('theme', theme); }catch(e){}
+  }
+  var savedTheme = null;
+  try{ savedTheme = localStorage.getItem('theme'); }catch(e){}
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+  if(themeToggle){
+    themeToggle.addEventListener('click', function(){
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+
   /* Mobile drawer */
   var menuBtn = document.getElementById('menuBtn');
   var drawer = document.getElementById('mobileDrawer');

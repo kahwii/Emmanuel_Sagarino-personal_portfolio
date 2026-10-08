@@ -23,6 +23,24 @@
     --maxw:1180px;
     --ease:cubic-bezier(.16,.84,.44,1);
     --nav-h:72px;
+    color-scheme: light;
+    --navbar-bg: rgba(245,246,250,0.85);
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --ink:#eef0f5;
+    --ink-soft:#b7bdcf;
+    --ink-faint:#7d84a0;
+    --paper:#0b0e16;
+    --surface:#131826;
+    --surface-dim:#1b2133;
+    --line:#262d40;
+    --line-strong:#333b54;
+    --amber:#e8a33d;
+    --amber-bright:#f0b559;
+    --teal:#2ec4b6;
+    --teal-bright:#2ec4b6;
+    --navbar-bg: rgba(11,14,22,0.85);
   }
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
@@ -65,7 +83,7 @@
   .navbar{
     position:sticky; top:0; z-index:80; height:var(--nav-h);
     display:flex; align-items:center; justify-content:space-between;
-    padding:0 40px; background:rgba(245,246,250,0.85); backdrop-filter:blur(10px);
+    padding:0 40px; background:var(--navbar-bg); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   .brand{ display:flex; align-items:center; gap:9px; font-family:var(--font-display); font-weight:700; font-size:17px; text-decoration:none; color:var(--ink); }
@@ -104,7 +122,7 @@
   @media (max-width:900px){ .hero-desc{ margin-left:auto; margin-right:auto; } }
   .hero-ctas{ display:flex; gap:14px; margin-top:30px; flex-wrap:wrap; }
   .btn{ font-family:var(--font-mono); font-size:13.5px; padding:13px 22px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; cursor:pointer; border:1px solid transparent; transition:transform .18s var(--ease), box-shadow .18s var(--ease), background .18s; }
-  .btn-primary{ background:linear-gradient(135deg, var(--ink), #262d40); color:#fff; }
+  .btn-primary{ background:linear-gradient(135deg, #10131a, #262d40); color:#fff; }
   .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 26px -6px rgba(16,19,26,0.35), 0 0 0 1px rgba(232,163,61,0.25); }
   .btn-ghost{ border-color:var(--line-strong); color:var(--ink); background:var(--surface); }
   .btn-ghost:hover{ transform:translateY(-2px); border-color:var(--ink); }
@@ -275,3 +293,8 @@
   .foot-links a{ text-decoration:none; color:var(--ink-soft); font-size:13.5px; }
   .foot-links a:hover{ color:var(--ink); }
   .foot-copy{ font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); margin-top:14px; }
+
+  /* ---------- Dark mode toggle ---------- */
+  body, .navbar, .skill-card, .project, .edu-card, .ach-card, .gh-activity-card, .mobile-drawer{ transition:background-color .3s, color .3s, border-color .3s; }
+  .theme-toggle{ width:36px; height:36px; border-radius:50%; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font-size:16px; line-height:1; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; padding:0; transition:transform .2s, border-color .2s, background .3s; }
+  .theme-toggle:hover{ transform:rotate(-15deg) scale(1.06); border-color:var(--amber-bright); }
