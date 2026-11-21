@@ -69,11 +69,11 @@
   .eyebrow{ font-family:var(--font-mono); font-size:12.5px; color:var(--ink-faint); display:flex; align-items:center; gap:8px; margin-bottom:14px; }
   .eyebrow::before{ content:''; width:7px; height:7px; border-radius:50%; background:var(--amber-bright); box-shadow:0 0 0 3px rgba(232,163,61,0.18); }
 
-  .section{ padding:100px 56px; max-width:var(--maxw); margin:0 auto; scroll-margin-top:calc(var(--nav-h) + 16px); }
-  .section-head{ margin-bottom:48px; max-width:640px; }
+  .section{ padding:64px 56px; max-width:var(--maxw); margin:0 auto; scroll-margin-top:calc(var(--nav-h) + 16px); }
+  .section-head{ margin-bottom:32px; max-width:640px; }
   .section-title{ font-size:clamp(28px,3.4vw,38px); font-weight:600; }
   .section-sub{ color:var(--ink-soft); margin-top:12px; font-size:16px; max-width:560px; }
-  @media (max-width:760px){ .section{ padding:72px 22px; } }
+  @media (max-width:760px){ .section{ padding:48px 22px; } }
 
   .reveal{ opacity:0; transform:translateY(18px); transition:opacity 0.7s var(--ease), transform 0.7s var(--ease); }
   .reveal.in-view{ opacity:1; transform:translateY(0); }
@@ -110,12 +110,12 @@
   .mobile-drawer a:last-child{ border-bottom:none; }
 
   /* ---------- Hero ---------- */
-  .hero{ padding:88px 56px 70px; max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:0.62fr 0.38fr; gap:56px; align-items:center; }
+  .hero{ padding:72px 56px 48px; max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:0.62fr 0.38fr; gap:56px; align-items:center; }
   @media (max-width:900px){ .hero{ grid-template-columns:1fr; padding:52px 22px 48px; text-align:center; } .hero-ctas, .hero-socials, .hero-stats{ justify-content:center; } }
   .hero-kicker{ font-family:var(--font-mono); font-size:13px; color:var(--teal); display:flex; align-items:center; gap:8px; margin-bottom:18px; }
   @media (max-width:900px){ .hero-kicker{ justify-content:center; } }
   .hero-kicker .bar{ width:22px; height:2px; background:var(--teal); }
-  .hero h1{ font-size:clamp(32px,4.6vw,52px); font-weight:700; line-height:1.08; }
+  .hero h1{ font-size:clamp(30px,4vw,46px); font-weight:700; line-height:1.08; }
   .hero h1 .accent{ color:var(--amber); }
   .hero-role{ font-family:var(--font-mono); font-size:16.5px; color:var(--ink-soft); margin-top:16px; }
   .hero-desc{ margin-top:18px; color:var(--ink-soft); font-size:16.5px; max-width:480px; }
