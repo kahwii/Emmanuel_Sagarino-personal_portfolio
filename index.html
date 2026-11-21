@@ -76,6 +76,7 @@
   <a href="#skills">Skills</a>
   <a href="#github-activity">GitHub Activity</a>
   <a href="#projects">Projects</a>
+  <a href="#coursework">Coursework</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
   <a href="#contact">Contact</a>
@@ -261,12 +262,13 @@
         <div class="project-head">
           <div class="project-index">03</div>
           <div>
-            <div class="project-title">RAG Chatbot — Evaluation &amp; Optimisation</div>
-            <p class="project-tagline">A retrieval-augmented chatbot over Philippine consumer-protection laws, built and evaluated by a team of three that I led.</p>
+            <div class="project-title">Retrieval Is the Ceiling — RAG Chatbot <span class="project-status">final project</span></div>
+            <p class="project-tagline">A retrieval-augmented chatbot over Philippine consumer-remedy law (RA 7394, 8792, 10642, 11967), built and evaluated as the final project of my NLP elective by a team of three that I led.</p>
             <div class="project-tags"><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">Chroma</span><span class="tag">Sentence-BERT</span><span class="tag">Qwen2.5</span></div>
           </div>
           <div class="project-links">
-            <a class="icon-link" href="https://github.com/kahwii" target="_blank" rel="noopener" aria-label="GitHub profile" title="GitHub"><i class="devicon-github-original"></i></a>
+            <a class="live-link" href="https://my-e-portfolio-orpin.vercel.app/finals.html" target="_blank" rel="noopener" aria-label="View the RAG project in my course portfolio">View project ↗</a>
+            <a class="icon-link" href="https://github.com/kahwii/My-E-portfolio" target="_blank" rel="noopener" aria-label="Course portfolio repository on GitHub" title="GitHub repository"><i class="devicon-github-original"></i></a>
           </div>
         </div>
         <details class="case-study">
@@ -274,12 +276,30 @@
           <div class="case-body">
             <div class="case-col"><h4>Problem</h4><p>Answer questions about a 73,652-character corpus of consumer-protection statutes accurately, and measure retrieval fairly as the chunking setup changes.</p></div>
             <div class="case-col"><h4>Approach</h4><ul><li>Built the pipeline with LangChain, Chroma, Sentence-BERT embeddings, and a locally hosted Qwen2.5 model on GPU</li><li>Designed an evaluation harness based on 21 verbatim evidence anchors instead of chunk IDs</li><li>Ran a controlled five-configuration experiment and three prompt iterations</li></ul></div>
-            <div class="case-col"><h4>Result</h4><p>Recall@3 rose from <strong>0.333 to 0.593</strong> while the index shrank by 38%. Wrong refusals dropped from 4/9 to <strong>0/9</strong>, and mean answer quality rose 32%.</p></div>
+            <div class="case-col"><h4>Result</h4><p>Recall@3 rose from <strong>0.333 to 0.593</strong> while the index shrank by 38%. Wrong refusals dropped from 4/9 to <strong>0/9</strong>, and mean answer quality rose 32%. The key finding: answer quality tracks retrieval, so retrieval, not the language model, is the ceiling. <a href="https://my-e-portfolio-orpin.vercel.app/assets/PurpleR_FinalProject_RAG.ipynb" target="_blank" rel="noopener">Download the notebook</a>.</p></div>
           </div>
         </details>
       </article>
 
     </div>
+  </section>
+
+
+  <!-- COURSEWORK -->
+  <section class="section reveal" id="coursework">
+    <div class="section-head">
+      <div class="eyebrow">Coursework</div>
+      <h2 class="section-title">Course portfolio</h2>
+    </div>
+    <a class="course-feature" href="https://my-e-portfolio-orpin.vercel.app" target="_blank" rel="noopener">
+      <div>
+        <span class="course-term">ITC-C508 · NLP &amp; Deep Learning</span>
+        <h3>My ITC-C508 course portfolio</h3>
+        <p>All my work for this elective in one place, organized by Prelim, Midterm, and Finals. It covers NLP basics, neural network training experiments, a waste-segregation RAG chatbot, chunking and CPU vs GPU experiments, and our group's final RAG chatbot for Philippine consumer law. Each activity comes with its files and a short reflection.</p>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">FAISS</span><span class="tag">Jupyter</span></div>
+      </div>
+      <span class="live-link">Visit site ↗</span>
+    </a>
   </section>
 
     <!-- ACADEMIC PROJECTS & INVOLVEMENT -->
@@ -323,7 +343,7 @@
         <p>Currently in 4th year, expected to graduate in 2027. Capstone: Tourism and Cultural Information Management System with Sentiment Analysis, for the CCAT Office of Mandaluyong City.</p>
       </div>
       <div class="edu-card">
-        <div class="eyebrow" style="margin-bottom:4px;">2021 — 2022</div>
+        <div class="eyebrow" style="margin-bottom:4px;">2021 — 2023</div>
         <h3>Senior High School — STEM Strand</h3>
         <div class="org">Philippine Christian University</div>
         <p>Completed the STEM strand, where I first got into programming and web development.</p>
