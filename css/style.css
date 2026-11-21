@@ -312,3 +312,11 @@
   .course-term{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); }
   .course-feature h3{ font-size:21px; font-weight:600; margin:8px 0 0; }
   .course-feature p{ color:var(--ink-soft); font-size:15px; margin:10px 0 0; max-width:640px; }
+
+  /* ---------- Project screenshots ---------- */
+  .project-shot{ margin:0 26px 22px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface-dim); }
+  .project-shot img{ width:100%; height:auto; display:block; }
+  .project-shot--phone{ display:flex; justify-content:center; padding:24px 16px; background:linear-gradient(135deg, rgba(15,107,100,0.10), rgba(232,163,61,0.10)), var(--surface-dim); }
+  .project-shot--phone img{ width:auto; max-width:240px; max-height:440px; border-radius:22px; border:6px solid #10131a; box-shadow:0 18px 40px -18px rgba(16,19,26,0.45); }
+  @media (max-width:700px){ .project-shot{ margin:0 16px 18px; } }
+  .principles li span strong{ color:var(--ink); font-weight:600; }
