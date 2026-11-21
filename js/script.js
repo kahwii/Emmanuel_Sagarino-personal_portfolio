@@ -74,15 +74,20 @@
   /* Count-up stats */
   var counts = document.querySelectorAll('.count');
   function animateCount(el){
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    if(reduceMotion){ el.textContent = target; return; }
-    var start = 0, duration = 1200, startTime = null;
+    var target = parseFloat(el.getAttribute('data-count'));
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    function fmt(v){ return prefix + v.toFixed(decimals) + suffix; }
+    if(reduceMotion){ el.textContent = fmt(target); return; }
+    var duration = 1200, startTime = null;
     function step(ts){
       if(!startTime) startTime = ts;
       var progress = Math.min((ts - startTime) / duration, 1);
-      el.textContent = Math.floor(progress * target);
+      var v = progress * target;
+      el.textContent = fmt(decimals ? v : Math.floor(v));
       if(progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+      else el.textContent = fmt(target);
     }
     requestAnimationFrame(step);
   }
