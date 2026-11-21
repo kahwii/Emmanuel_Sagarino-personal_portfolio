@@ -304,3 +304,13 @@
   .live-link:hover{ transform:translateY(-2px); background:var(--teal-bright); }
   :root[data-theme="dark"] .live-link{ color:#0b0e16; }
   .case-col a{ color:var(--teal); }
+
+  /* ---------- Coursework ---------- */
+  .course-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; }
+  .course-card{ display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:22px; text-decoration:none; color:var(--ink); transition:border-color .2s, transform .2s, box-shadow .2s; }
+  .course-card:hover{ border-color:var(--teal); transform:translateY(-3px); box-shadow:0 16px 32px -22px rgba(16,19,26,0.28); }
+  .course-term{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); }
+  .course-card h3{ font-size:16.5px; font-weight:600; margin:8px 0 0; line-height:1.35; }
+  .course-card p{ color:var(--ink-soft); font-size:14px; margin:10px 0 0; flex:1; }
+  .course-card .project-tags{ margin-top:14px; }
+  #coursework .gh-activity-link{ margin-top:28px; }
