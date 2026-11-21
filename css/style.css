@@ -341,3 +341,90 @@
     .nav-links a{ padding:9px 10px; font-size:14px; }
     .nav-links a.active::after{ left:10px; right:10px; }
   }
+
+  /* =========================================================
+     Motion system
+     ========================================================= */
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
+  @keyframes fadeIn{ from{ opacity:0; } to{ opacity:1; } }
+  @keyframes themeSpin{ from{ transform:rotate(-180deg) scale(.6); } to{ transform:none; } }
+  @keyframes shine{ from{ transform:translateX(-120%) skewX(-20deg); } to{ transform:translateX(220%) skewX(-20deg); } }
+
+  /* Hero entrance, staggered on page load */
+  .hero-kicker, .hero h1, .hero-desc, .hero-ctas, .hero-socials, .hero-stats{ animation:fadeUp .8s var(--ease) both; }
+  .hero h1{ animation-delay:.08s; }
+  .hero-desc{ animation-delay:.18s; }
+  .hero-ctas{ animation-delay:.28s; }
+  .hero-socials{ animation-delay:.36s; }
+  .hero-stats{ animation-delay:.44s; }
+
+  /* Sections: children rise in one after another (JS adds .rv-item and --i) */
+  .js-motion .reveal{ opacity:1; transform:none; }
+  .js-motion .rv-item{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease); transition-delay:calc(var(--i,0) * 90ms); }
+  .js-motion .reveal.in-view .rv-item{ opacity:1; transform:none; }
+
+  /* Navbar: shadow once you scroll, animated underline */
+  .navbar{ transition:box-shadow .3s, background-color .3s; }
+  .navbar.scrolled{ box-shadow:0 10px 30px -18px rgba(16,19,26,0.35); }
+  .nav-links a::after{ content:''; position:absolute; left:14px; right:14px; bottom:3px; height:2px; background:var(--amber-bright); border-radius:2px; transform:scaleX(0); transform-origin:left center; transition:transform .35s var(--ease); }
+  .nav-links a:hover::after, .nav-links a.active::after{ transform:scaleX(1); }
+  .nav-links a:hover::after{ opacity:.5; }
+  .nav-links a.active::after{ opacity:1; }
+  @media (max-width:1200px){ .nav-links a::after{ left:10px; right:10px; } }
+
+  /* Scroll progress bar */
+  .scroll-progress{ position:fixed; top:0; left:0; right:0; height:3px; z-index:100; background:linear-gradient(90deg, var(--amber-bright), var(--teal-bright)); transform:scaleX(0); transform-origin:left center; pointer-events:none; }
+
+  /* Buttons */
+  .btn-primary{ position:relative; overflow:hidden; }
+  .btn-primary::after{ content:''; position:absolute; top:0; bottom:0; left:0; width:40%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent); transform:translateX(-120%) skewX(-20deg); pointer-events:none; }
+  .btn-primary:hover::after{ animation:shine .8s var(--ease); }
+  .btn-ghost:hover{ box-shadow:0 10px 22px -12px rgba(16,19,26,0.3); }
+  .live-link{ position:relative; overflow:hidden; }
+  .live-link::after{ content:''; position:absolute; top:0; bottom:0; left:0; width:40%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform:translateX(-120%) skewX(-20deg); pointer-events:none; }
+  .live-link:hover::after{ animation:shine .8s var(--ease); }
+
+  /* Cards: smooth lift on hover (keeps theme color transitions) */
+  .skill-card, .edu-card, .ach-card, .gh-activity-card, .project, .course-feature, .stack-group{ transition:background-color .3s, color .3s, border-color .25s, transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .stack-group:hover{ border-color:var(--line-strong); transform:translateY(-3px); box-shadow:0 16px 32px -22px rgba(16,19,26,0.28); }
+  .project:hover{ transform:translateY(-3px); }
+  .project-shot img{ transition:transform .6s var(--ease); }
+  .project:hover .project-shot img{ transform:scale(1.015); }
+  .ach-card .num{ transition:color .25s; }
+  .ach-card:hover .num{ color:var(--teal); }
+  .stack-item{ transition:transform .2s var(--ease), color .2s; }
+  .stack-item:hover{ transform:translateX(4px); color:var(--teal); }
+
+  /* Case study: content fades in when opened; theme-safe hover */
+  details.case-study summary{ transition:background-color .2s; }
+  details.case-study summary:hover{ background:var(--surface-dim); }
+  details.case-study[open] .case-body > *{ animation:fadeUp .5s var(--ease) both; }
+  details.case-study[open] .case-body > *:nth-child(2){ animation-delay:.08s; }
+  details.case-study[open] .case-body > *:nth-child(3){ animation-delay:.16s; }
+
+  /* Timeline: line draws down, dots pop in */
+  .js-motion .log::before{ transform:scaleY(0); transform-origin:top; transition:transform 1.2s var(--ease) .2s; }
+  .js-motion .reveal.in-view .log::before{ transform:scaleY(1); }
+  .commit::before{ transition:transform .4s var(--ease), background-color .3s; }
+  .commit:hover::before{ transform:scale(1.25); background:var(--amber-bright); }
+
+  /* Contact form focus glow */
+  .form-group input, .form-group textarea{ transition:border-color .2s, box-shadow .2s; }
+  .form-group input:focus, .form-group textarea:focus{ box-shadow:0 0 0 3px rgba(232,163,61,0.18); }
+  .form-submit{ transition:transform .2s var(--ease), background-color .2s, box-shadow .2s; }
+  .form-submit:hover{ box-shadow:0 12px 24px -10px rgba(232,163,61,0.55); }
+
+  /* Theme toggle spins when switched */
+  .theme-toggle.spin{ animation:themeSpin .5s var(--ease); }
+
+  /* Back to top */
+  .to-top{ position:fixed; right:22px; bottom:calc(22px + env(safe-area-inset-bottom, 0px)); z-index:90; width:44px; height:44px; border-radius:50%; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font-size:18px; cursor:pointer; box-shadow:0 12px 24px -12px rgba(16,19,26,0.4); opacity:0; transform:translateY(12px); pointer-events:none; transition:opacity .3s, transform .3s var(--ease), border-color .2s; }
+  .to-top.show{ opacity:1; transform:none; pointer-events:auto; }
+  .to-top:hover{ border-color:var(--amber-bright); transform:translateY(-3px); }
+
+  @media (prefers-reduced-motion: reduce){
+    .js-motion .rv-item{ opacity:1; transform:none; }
+    .js-motion .log::before{ transform:none; }
+    .scroll-progress{ display:none; }
+  }
+  .stagger > *:not(.rv-item){ transition-delay:0s; }

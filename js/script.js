@@ -17,8 +17,44 @@
   if(themeToggle){
     themeToggle.addEventListener('click', function(){
       applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      themeToggle.classList.remove('spin'); void themeToggle.offsetWidth; themeToggle.classList.add('spin');
     });
   }
+
+  /* Motion: stagger the items inside each revealed section */
+  root.classList.add('js-motion');
+  var itemSelector = '.section-head, .about-copy > p, .principles-card, .stack-group, .gh-activity-card, .project, .course-feature, .commit, .edu-card, .cert-row, .ach-card, .contact-wrap > div, #contactForm';
+  document.querySelectorAll('.reveal').forEach(function(section){
+    section.querySelectorAll(itemSelector).forEach(function(el, i){
+      el.classList.add('rv-item');
+      el.style.setProperty('--i', Math.min(i, 8));
+    });
+  });
+
+  /* Navbar shadow, scroll progress, back to top */
+  var navbar = document.querySelector('.navbar');
+  var progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
+  var toTop = document.createElement('button');
+  toTop.className = 'to-top';
+  toTop.type = 'button';
+  toTop.setAttribute('aria-label', 'Back to top');
+  toTop.textContent = '↑';
+  toTop.addEventListener('click', function(){ window.scrollTo({ top:0, behavior: reduceMotion ? 'auto' : 'smooth' }); });
+  document.body.appendChild(toTop);
+  var ticking = false;
+  function onScroll(){
+    var y = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if(navbar) navbar.classList.toggle('scrolled', y > 10);
+    progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+    toTop.classList.toggle('show', y > 700);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, { passive:true });
+  onScroll();
 
   /* Mobile drawer */
   var menuBtn = document.getElementById('menuBtn');
@@ -56,7 +92,15 @@
   } else {
     var revealObserver = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
-        if(entry.isIntersecting){ entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target); }
+        if(entry.isIntersecting){
+          var section = entry.target;
+          section.classList.add('in-view');
+          revealObserver.unobserve(section);
+          // After the entrance finishes, drop .rv-item so hover transitions work normally
+          setTimeout(function(){
+            section.querySelectorAll('.rv-item').forEach(function(el){ el.classList.remove('rv-item'); });
+          }, 1700);
+        }
       });
     }, { threshold: 0.12 });
     revealEls.forEach(function(el){ revealObserver.observe(el); });
